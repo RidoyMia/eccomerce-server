@@ -10,7 +10,127 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
- model category {
+ model Category {
    id Int @id @default(autoincrement())
    name String @unique
+   product Product[]
    }
+model User {
+   id Int @id @default(autoincrement())
+   email String @unique
+   name String
+   password String
+   profile String
+   review Review[]
+   order Order[]
+   role String @default("user")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+    
+}
+
+enum BlodGroup {
+  A_POSITIVE
+  A_NEGATIVE
+  B_POSITIVE
+  B_NEGATIVE
+  AB_POSITIVE
+  AB_NEGATIVE
+  O_POSITIVE
+  O_NEGATIVE
+}
+
+model Seller{
+  id Int @id @default(autoincrement())
+  email  String @unique
+  password String
+  name  String
+  country String
+  divission String
+  district String
+  sub_district String
+  union String
+  village_name String
+  profile String
+  blood_group BlodGroup  
+  role String @default("seller")
+   createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  product Product[]
+}
+
+
+
+model Product {
+   id Int @id @default(autoincrement())
+   categoriID  Int 
+   category Category @relation(fields: [categoriID],references: [id])
+   name String 
+   price Int
+   size String
+   descriptions String
+   authorId Int
+   author Seller @relation(fields: [authorId],references: [id])
+   oldPrice Int
+   quantity Int 
+   brand String
+   review Review[]
+   order Order[]
+   createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+     
+}
+enum Ratings {
+  Best
+  Better
+  Good
+  Bad
+  Verry_Bad
+
+}
+
+model Review {
+  id Int @id @default(autoincrement())
+  userId Int
+  user User @relation(fields: [userId],references: [id]) 
+  rating  Ratings
+  message String 
+  productId Int
+  product Product @relation(fields: [productId],references: [id])
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+ 
+}
+
+
+model Order {
+  id Int @id @default(autoincrement()) 
+  productId Int
+  product Product @relation(fields: [productId],references: [id])
+  quantity String 
+  userId Int
+  user User @relation(fields: [userId],references: [id])
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+
+}
+
+model Admin {
+  id Int @id @default(autoincrement())
+  email String @unique
+  password String
+  name String 
+  country String
+  divission String
+  district String
+  sub_district String
+  union String
+  village_name String
+  profile String 
+  blood_group String  
+  role String @default("Admin")
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
