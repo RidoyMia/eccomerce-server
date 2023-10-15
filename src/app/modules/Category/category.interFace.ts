@@ -1,5 +1,6 @@
 
 export interface Icategory  {
-     name : string
+     name : string,
+     picture : string
 }
 

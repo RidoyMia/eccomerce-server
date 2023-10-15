@@ -1,0 +1,123 @@
+[
+    {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/W3jvKJSr/08a53d14-ef8f-4500-a8b5-16cc11152d1c-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/Lskdz8Rs/8a8cff2a-995b-4eb0-bdcb-004dff81acb5-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/KjHCZK70/11bcfc41-4b1a-4d2d-a5bc-8e3b1833139c-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/mkt66LxC/ab5b3c9b-59f6-4e26-847d-86a9ee0ce59e-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/zXHcCGF1/bbece8cf-822c-420f-b796-5ad2d0b5d129-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/k5qYPF3n/c31839e8-539b-47f3-a71c-6928868c396e-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/mZPsnRym/d554a15f-c0d2-4a0d-92c1-4040734145cf-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/JzLCtXVF/d95329d2-af48-4f02-8ac4-6f66650b3072-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/tJx84qry/e163bc9f-3bac-4ee6-9333-b76ee91d63ab-removebg-preview.png"
+    }, {
+        "id" : 1, 
+       "categoriID" : "33" ,
+       "name" : "Shoe",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Shoes are essential footwear designed to protect and provide comfort to your feet while also making a fashion statement. They come in various styles, including sneakers, boots, sandals, and more, each tailored for specific activities or occasions. Shoes can be made from a variety of materials such as leather, canvas, or synthetic fabrics, and they often feature various designs, colors, and embellishments to suit individual preferences and trends. Choosing the right pair of shoes can enhance both your style and comfort, making them a crucial part of your everyday wardrobe.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/c1nzYJmG/fdd68e1c-4f12-4fbc-8506-c25aa472d4af-removebg-preview.png"
+    }
+]

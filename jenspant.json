@@ -1,0 +1,123 @@
+[
+    {
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/wB7JmCg7/blue-heren-jeans-11530970217jxhyzydkjx-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/qqXCr0XZ/images-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/HLqJ7j6h/Men-Jeans-PNG-Pic-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/HkKnfV1k/png-clipart-jeans-slim-fit-pants-fashion-denim-jeans-fashion-black-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/L5H8zPLN/png-clipart-jeans-t-shirt-clothing-denim-sweater-women-s-jeans-blue-womens-jeans-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/ryQ8BKS2/png-clipart-nudie-jeans-denim-slim-fit-pants-levi-strauss-co-jeans-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/BvT3M6qy/png-transparent-jeans-denim-waist-woman-jeans-blue-denim-jeans-thumbnail-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/C5t9FThk/png-transparent-jeans-slim-fit-pants-clothing-denim-black-jeans-zipper-fashion-shoe-thumbnail-remove.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/3rbsjpXN/png-transparent-jeans-trousers-denim-undergarment-jeans-blue-taobao-shoe-thumbnail-removebg-preview.png"
+    },{
+        "id" : 1, 
+       "categoriID" : "77" ,
+       "name" : "Jens-pant",
+       "price" : 123,
+       "size" :"L , M and XL",
+       "descriptions" :"Jeans typically feature a sturdy, woven fabric known as denim, which can come in various colors and washes. They are often characterized by their classic design, including pockets, belt loops, and a zipper or button fly. Jeans come in various styles, such as straight-leg, bootcut, skinny, and more, catering to different fashion preferences.Jeans have become a staple in many wardrobes worldwide due to their comfort and timeless appeal. They can be dressed up with a nice shirt and shoes for a semi-casual look or dressed down with a t-shirt and sneakers for a more relaxed outfit. The versatility and durability of jeans have made them a popular choice for everyday wear.",
+       "authorId" : 2 ,
+       "oldPrice" : 150,
+       "quantity" : 25,
+       "brand" : "No brand",
+       "picture" : "https://i.postimg.cc/SKq3QGhT/pngtree-jeans-material-trend-stitching-png-image-4001817-removebg-preview.png"
+    }
+]

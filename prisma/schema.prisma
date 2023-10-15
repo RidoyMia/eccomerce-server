@@ -13,6 +13,7 @@ datasource db {
  model Category {
    id Int @id @default(autoincrement())
    name String @unique
+   picture String
    product Product[]
    }
 model User {
@@ -23,22 +24,14 @@ model User {
    profile String
    review Review[]
    order Order[]
+   login Boolean @default(false)
    role String @default("user")
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
     
 }
 
-enum BlodGroup {
-  A_POSITIVE
-  A_NEGATIVE
-  B_POSITIVE
-  B_NEGATIVE
-  AB_POSITIVE
-  AB_NEGATIVE
-  O_POSITIVE
-  O_NEGATIVE
-}
+
 
 model Seller{
   id Int @id @default(autoincrement())
@@ -52,7 +45,7 @@ model Seller{
   union String
   village_name String
   profile String
-  blood_group BlodGroup  
+  login Boolean @default(false)
   role String @default("seller")
    createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
@@ -69,11 +62,12 @@ model Product {
    price Int
    size String
    descriptions String
-   authorId Int
-   author Seller @relation(fields: [authorId],references: [id])
+   SellerId Int
+   author Seller @relation(fields: [SellerId],references: [id])
    oldPrice Int
    quantity Int 
    brand String
+   status String @default("in-stock")
    review Review[]
    order Order[]
    createdAt        DateTime           @default(now())

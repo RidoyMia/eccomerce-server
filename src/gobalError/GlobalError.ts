@@ -2,23 +2,35 @@
 import express,{Request,Response,NextFunction} from "express"
  
 export const GlobalError = ( error:any,req:Request,res:Response,next:NextFunction)=>{
-  let message =  error.message
+  let message 
   let status = 400
+  let name 
   if(error instanceof Prisma.PrismaClientKnownRequestError){
-    message = error.message,
-    status = 800
+    const  messages = error.message.trim().split('\n')
+    const eXactError = messages[messages.length - 1]
+    
+   status = 400,
+   message = eXactError
+   name = error.name
   }
-  if(error instanceof Prisma.PrismaClientValidationError){
-    message = error.message,
-    status = 600
+ else if(error instanceof Prisma.PrismaClientValidationError){
+   const  messages = error.message.trim().split('\n')
+     const eXactError = messages[messages.length - 1]
+     
+    status = 400,
+    message = eXactError
+    name = error.name
   }
-  if(error instanceof Error){
+  else if(error instanceof Error){
     message = error.message
-    status = 400
+    status = 400,
+    name = error.name
+    
   }
   res.status(status).send({
     message,
-    status
+    status,
+    name
   })
     
 }

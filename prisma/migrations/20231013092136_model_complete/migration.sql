@@ -126,7 +126,7 @@ CREATE UNIQUE INDEX "Category_name_key" ON "Category"("name");
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
--- CreateIndex
+-- CreateIndexca
 CREATE UNIQUE INDEX "Seller_email_key" ON "Seller"("email");
 
 -- CreateIndex
