@@ -7,6 +7,8 @@ import { GlobalError } from "./gobalError/GlobalError"
 import categoryRouter from "./app/modules/Category/category.route"
 import UserRouter from "./app/modules/User/User.route"
 import sellerRouter from "./app/modules/Seller/Seller.route"
+import productRouter from "./app/modules/Products/Product.route"
+import reviewRouter from "./app/modules/Review/Review.route"
 
 const app:Application = express()
 app.use(cookieParser())
@@ -20,6 +22,8 @@ const prisma =new PrismaClient()
 app.use("/api/v1/category",categoryRouter)
 app.use("/api/v1/user",UserRouter)
 app.use("/api/v1/seller",sellerRouter)
+app.use("/api/v1/product",productRouter)
+app.use("/api/v1/review",reviewRouter)
 app.get('/',async(req:Request,res:Response)=>{
    
     res.send({
