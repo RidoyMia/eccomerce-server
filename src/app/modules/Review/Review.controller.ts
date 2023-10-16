@@ -1,7 +1,4 @@
-// createReview,
-//     deleteReview,
-//     updateReviw,
-//     getAllReviewByProductId
+
 
 import { NextFunction,Request,Response } from "express";
 import { Ireview } from "./Review.interface";
