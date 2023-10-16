@@ -17,6 +17,34 @@ const createUserService = (UserData) => __awaiter(void 0, void 0, void 0, functi
     });
     return result;
 });
+const signupUserService = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const isAdmin = yield Prisma_1.prisma.admin.findFirst({
+        where: {
+            email: email
+        }
+    });
+    if (isAdmin) {
+        return isAdmin;
+    }
+    else if (!isAdmin) {
+        const isSeller = yield Prisma_1.prisma.seller.findFirst({
+            where: {
+                email: email
+            }
+        });
+        if (isSeller) {
+            return isSeller;
+        }
+        else if (!isSeller) {
+            const isUser = yield Prisma_1.prisma.user.findFirst({
+                where: {
+                    email: email
+                }
+            });
+            return isUser;
+        }
+    }
+});
 const getAllUserService = (options) => __awaiter(void 0, void 0, void 0, function* () {
     const { page = 1 } = options;
     const skipping = (parseInt(page) - 1) * 10;
@@ -40,5 +68,6 @@ const deleteUserService = (id) => __awaiter(void 0, void 0, void 0, function* ()
 exports.userService = {
     createUserService,
     getAllUserService,
-    deleteUserService
+    deleteUserService,
+    signupUserService
 };

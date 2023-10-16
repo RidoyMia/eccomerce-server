@@ -25,7 +25,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const envpath_1 = require("../../../config/envpath");
 const User_service_1 = require("./User.service");
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const GlobalError_1 = require("../../../gobalError/GlobalError");
 const createUserController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -37,9 +39,6 @@ const createUserController = (req, res, next) => __awaiter(void 0, void 0, void 
         console.log(result, 'resultttt');
         const { password } = result, others = __rest(result, ["password"]);
         if (result) {
-            //   const ACCESSTOKEN = await jwt.sign({email : result.email,role:result.role},config.ACCESSTOKEN as Secret, {expiresIn : config.ACCESSTOKEN_EXP})
-            // const REFRESHTOKEN = await jwt.sign({email : result.email,role:result.role},config.REFRESHTOKEN as Secret, {expiresIn : config.REFRESHTOKEN_EXP})
-            // res.cookie("refreshToken" , REFRESHTOKEN)
             res.status(200).send({
                 action: true,
                 others
@@ -51,6 +50,31 @@ const createUserController = (req, res, next) => __awaiter(void 0, void 0, void 
         (0, GlobalError_1.GlobalError)(error, req, res, next);
     }
 });
+const signupUserController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const userInfo = req.body;
+        const result = yield User_service_1.userService.signupUserService(userInfo.email);
+        const { password } = result, others = __rest(result, ["password"]);
+        const isMatchPassword = yield bcrypt_1.default.compare(userInfo.password, result.password);
+        if (!isMatchPassword) {
+            (0, GlobalError_1.GlobalError)("password does not match", req, res, next);
+        }
+        else {
+            const ACCESSTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role }, envpath_1.config.ACCESSTOKEN, { expiresIn: envpath_1.config.ACCESSTOKEN_EXP });
+            const REFRESHTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role }, envpath_1.config.REFRESHTOKEN, { expiresIn: envpath_1.config.REFRESHTOKEN_EXP });
+            res.cookie("refreshToken", REFRESHTOKEN);
+            res.status(200).send({
+                action: true,
+                ACCESSTOKEN,
+                others
+            });
+        }
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
+});
 exports.UserController = {
-    createUserController
+    createUserController,
+    signupUserController
 };
