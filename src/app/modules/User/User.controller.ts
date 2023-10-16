@@ -20,9 +20,7 @@ const createUserController = async(req:Request,res:Response,next:NextFunction) :
      
       
           if(result){
-          //   const ACCESSTOKEN = await jwt.sign({email : result.email,role:result.role},config.ACCESSTOKEN as Secret, {expiresIn : config.ACCESSTOKEN_EXP})
-          // const REFRESHTOKEN = await jwt.sign({email : result.email,role:result.role},config.REFRESHTOKEN as Secret, {expiresIn : config.REFRESHTOKEN_EXP})
-          // res.cookie("refreshToken" , REFRESHTOKEN)
+         
           res.status(200).send({
            action : true,
        
@@ -38,7 +36,34 @@ const createUserController = async(req:Request,res:Response,next:NextFunction) :
         GlobalError(error,req,res,next)
     }
 }
+const signupUserController = async(req:Request,res:Response,next:NextFunction) : Promise<Iuser | any > =>{
+    try {
+        const userInfo = req.body;
+        const result = await userService.signupUserService(userInfo.email);
+        const {password,...others} = result
+        const isMatchPassword = await bcrypt.compare(userInfo.password,result.password)
+        if(!isMatchPassword){
+            GlobalError("password does not match",req,res,next)
+        }
+        else{
+               const ACCESSTOKEN = await jwt.sign({email : result.email,role:result.role},config.ACCESSTOKEN as Secret, {expiresIn : config.ACCESSTOKEN_EXP})
+          const REFRESHTOKEN = await jwt.sign({email : result.email,role:result.role},config.REFRESHTOKEN as Secret, {expiresIn : config.REFRESHTOKEN_EXP})
+          res.cookie("refreshToken" , REFRESHTOKEN)
+
+          res.status(200).send({
+            action : true,
+            ACCESSTOKEN,
+            others
+        
+          })
+
+        }
+    } catch (error) {
+        GlobalError(error,req,res,next)
+    }
+}
 
 export const UserController = {
-    createUserController
+    createUserController,
+    signupUserController
 }
