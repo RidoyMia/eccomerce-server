@@ -46,8 +46,8 @@ const signupUserController = async(req:Request,res:Response,next:NextFunction) :
             GlobalError("password does not match",req,res,next)
         }
         else{
-               const ACCESSTOKEN = await jwt.sign({email : result.email,role:result.role},config.ACCESSTOKEN as Secret, {expiresIn : config.ACCESSTOKEN_EXP})
-          const REFRESHTOKEN = await jwt.sign({email : result.email,role:result.role},config.REFRESHTOKEN as Secret, {expiresIn : config.REFRESHTOKEN_EXP})
+               const ACCESSTOKEN = await jwt.sign({email : result.email,role:result.role,userId : result.userId},config.ACCESSTOKEN as Secret, {expiresIn : config.ACCESSTOKEN_EXP})
+          const REFRESHTOKEN = await jwt.sign({email : result.email,role:result.role,userId : result.userId},config.REFRESHTOKEN as Secret, {expiresIn : config.REFRESHTOKEN_EXP})
           res.cookie("refreshToken" , REFRESHTOKEN)
 
           res.status(200).send({
