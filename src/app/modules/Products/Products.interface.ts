@@ -18,15 +18,15 @@
 // }
 
  export interface IProduct {
-    id: number
+    id? : number
     categoriID: number
     name: string
     price: number
     size: string
     descriptions: string
     SellerId: number
-    
     oldPrice: number
     quantity: number
-    brand: string
+    brand: string,
+    picture : string
  }

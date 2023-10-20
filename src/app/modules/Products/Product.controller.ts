@@ -105,6 +105,17 @@ const updateProductController = async(req:Request,res:Response,next:NextFunction
         GlobalError(error,req,res,next) 
     }
 }
+const getTwoPoductOfEachCategoryController = async(req:Request,res:Response,next:NextFunction) : Promise<IProduct[] | any > =>{
+    try {
+        const result = await productService.getTwoPoductOfEachCategory();
+        res.status(200).send({
+            action : true,
+            result
+        })
+    } catch (error) {
+        GlobalError(error,req,res,next)
+    }
+}
 
 export const productController = {
     createProdutController,
@@ -113,5 +124,6 @@ export const productController = {
     getProdutBySellerController,
     getAllByCategory,
     deleteProductController,
-    updateProductController
+    updateProductController,
+    getTwoPoductOfEachCategoryController
 }

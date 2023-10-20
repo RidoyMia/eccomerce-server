@@ -60,8 +60,8 @@ const signupUserController = (req, res, next) => __awaiter(void 0, void 0, void 
             (0, GlobalError_1.GlobalError)("password does not match", req, res, next);
         }
         else {
-            const ACCESSTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role }, envpath_1.config.ACCESSTOKEN, { expiresIn: envpath_1.config.ACCESSTOKEN_EXP });
-            const REFRESHTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role }, envpath_1.config.REFRESHTOKEN, { expiresIn: envpath_1.config.REFRESHTOKEN_EXP });
+            const ACCESSTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role, userId: result.userId }, envpath_1.config.ACCESSTOKEN, { expiresIn: envpath_1.config.ACCESSTOKEN_EXP });
+            const REFRESHTOKEN = yield jsonwebtoken_1.default.sign({ email: result.email, role: result.role, userId: result.userId }, envpath_1.config.REFRESHTOKEN, { expiresIn: envpath_1.config.REFRESHTOKEN_EXP });
             res.cookie("refreshToken", REFRESHTOKEN);
             res.status(200).send({
                 action: true,

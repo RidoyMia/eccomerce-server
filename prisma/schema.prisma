@@ -57,6 +57,7 @@ model Seller{
 model Product {
    id Int @id @default(autoincrement())
    categoriID  Int 
+   picture String
    category Category @relation(fields: [categoriID],references: [id])
    name String 
    price Int
