@@ -114,6 +114,18 @@ const updateProductController = (req, res, next) => __awaiter(void 0, void 0, vo
         (0, GlobalError_1.GlobalError)(error, req, res, next);
     }
 });
+const getTwoPoductOfEachCategoryController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield Product_service_1.productService.getTwoPoductOfEachCategory();
+        res.status(200).send({
+            action: true,
+            result
+        });
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
+});
 exports.productController = {
     createProdutController,
     getAllProduct,
@@ -121,5 +133,6 @@ exports.productController = {
     getProdutBySellerController,
     getAllByCategory,
     deleteProductController,
-    updateProductController
+    updateProductController,
+    getTwoPoductOfEachCategoryController
 };

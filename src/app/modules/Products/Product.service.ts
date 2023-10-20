@@ -1195,7 +1195,7 @@ const getTwoPoductOfEachCategory =async() : Promise<IProduct[] | any> =>{
     })
     features.push(...product)
   }
-  console.log(features,'featuresss two')
+  return features
 }
 
 const getAllByCategory = async(id:number,options:any) :Promise<IProduct[] | any> =>{

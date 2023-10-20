@@ -15,6 +15,7 @@ const Product_controller_1 = require("./Product.controller");
 const productRouter = express_1.default.Router();
 productRouter.post('/create', Product_controller_1.productController.createProdutController);
 productRouter.get('/All', Product_controller_1.productController.getAllProduct);
+productRouter.get('/features', Product_controller_1.productController.getTwoPoductOfEachCategoryController);
 productRouter.get('/seller/:id', Product_controller_1.productController.getProdutBySellerController);
 productRouter.get('/category/:id', Product_controller_1.productController.getAllByCategory);
 productRouter.delete('/:id', Product_controller_1.productController.deleteProductController);
