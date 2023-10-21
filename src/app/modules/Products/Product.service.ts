@@ -1074,7 +1074,7 @@ const createProduct = async(productinfo : IProduct) : Promise<IProduct | any> =>
     return result
 }
 const getAllProduct = async(options : any) : Promise<IProduct[] |any> =>{
-    const {page = 1, searchText="",price='desc',range=1000} = options
+    const {page = 1, searchText="",price='asc',range=1000} = options
     console.log(options)
     const skipping = (parseInt(page) -1 ) * 10
     const result = await prisma.product.findMany({
