@@ -29,6 +29,7 @@ const createProdutController = async(req:Request,res:Response,next: NextFunction
 const getAllProduct = async(req:Request,res:Response,next:NextFunction) : Promise<IProduct[] | any > =>{
     try {
         const options = req.query;
+        
         const result = await productService.getAllProduct(options);
         res.status(200).send({
             action : true,

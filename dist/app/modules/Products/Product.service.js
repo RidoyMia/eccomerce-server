@@ -1103,7 +1103,7 @@ const getTwoPoductOfEachCategory = () => __awaiter(void 0, void 0, void 0, funct
         });
         features.push(...product);
     }
-    console.log(features, 'featuresss two');
+    return features;
 });
 const getAllByCategory = (id, options) => __awaiter(void 0, void 0, void 0, function* () {
     const { page = 1, searchText = "", sortBy = 'asc' } = options;
