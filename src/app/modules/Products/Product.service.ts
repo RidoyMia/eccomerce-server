@@ -1088,7 +1088,7 @@ const getAllProduct = async(options : any) : Promise<IProduct[] |any> =>{
         },
         where : {
           price : {
-             lte : parseInt(range)
+             lt : parseInt(range)
           },
             OR : [
                 {
