@@ -988,7 +988,7 @@ const createProduct = (productinfo) => __awaiter(void 0, void 0, void 0, functio
     return result;
 });
 const getAllProduct = (options) => __awaiter(void 0, void 0, void 0, function* () {
-    const { page = 1, searchText = "", price = 'desc', range = 1000 } = options;
+    const { page = 1, searchText = "", price = 'asc', range = 1000 } = options;
     console.log(options);
     const skipping = (parseInt(page) - 1) * 10;
     const result = yield Prisma_1.prisma.product.findMany({

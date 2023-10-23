@@ -1127,6 +1127,10 @@ const getAllProduct = async(options : any) : Promise<IProduct[] |any> =>{
 }
 const getSingleProduct = async(id : number) : Promise<IProduct | any> =>{
     const result = await prisma.product.findUnique({
+      include : {
+        category : true,
+        author : true
+      },
         where : {
             id
         }
