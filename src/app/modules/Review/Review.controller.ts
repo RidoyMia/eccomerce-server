@@ -45,7 +45,9 @@ const updateReviwController = async(req:Request,res:Response,next:NextFunction) 
 }
 const getAllReviewByProductIdController = async(req:Request,res:Response,next:NextFunction) : Promise<Ireview | any> =>{
     try {
+        
         const id = parseInt(req.params.id)
+        console.log(id,'si')
         const result = await ReviewService.getAllReviewByProductId(id);
         res.status(200).send({
             action : true,

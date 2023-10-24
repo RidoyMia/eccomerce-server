@@ -28,10 +28,16 @@ const updateReviw = async(id : number,data : Partial<Ireview>) : Promise<Ireview
 
 const getAllReviewByProductId = async(id : number) : Promise<Ireview[] | any> =>{
     const result = await prisma.review.findMany({
+        
         where : {
             productId : id
+        },
+        include : {
+            user : true
+        
         }
     })
+    return result
 }
 
 export const ReviewService = {

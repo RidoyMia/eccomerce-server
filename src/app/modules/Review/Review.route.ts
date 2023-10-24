@@ -7,7 +7,7 @@ const reviewRouter = express.Router()
 reviewRouter.post('/create',reviewController.createProductController)
 reviewRouter.delete('/:id',reviewController.deleteReviewController)
 reviewRouter.patch('/:id',reviewController.updateReviwController)
-reviewRouter.post('/product/:id',reviewController.getAllReviewByProductIdController)
+reviewRouter.get('/:id',reviewController.getAllReviewByProductIdController)
 
 
 export default reviewRouter;
