@@ -1038,6 +1038,10 @@ const getAllProduct = (options) => __awaiter(void 0, void 0, void 0, function* (
 });
 const getSingleProduct = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield Prisma_1.prisma.product.findUnique({
+        include: {
+            category: true,
+            author: true
+        },
         where: {
             id
         }
