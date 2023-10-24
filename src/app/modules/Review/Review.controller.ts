@@ -9,6 +9,7 @@ import { ReviewService } from "./Review.service";
 const createProductController = async(req:Request,res:Response,next:NextFunction) : Promise<Ireview | any> =>{
     try {
         const reviewInfo = req.body;
+        console.log(reviewInfo,'reviewsss')
         const result = await ReviewService.createReview(reviewInfo);
         res.status(200).send({
             action : true,

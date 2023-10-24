@@ -55,6 +55,7 @@ const updateReviwController = (req, res, next) => __awaiter(void 0, void 0, void
 const getAllReviewByProductIdController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
+        console.log(id, 'si');
         const result = yield Review_service_1.ReviewService.getAllReviewByProductId(id);
         res.status(200).send({
             action: true,

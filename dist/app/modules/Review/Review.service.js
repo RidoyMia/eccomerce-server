@@ -36,8 +36,12 @@ const getAllReviewByProductId = (id) => __awaiter(void 0, void 0, void 0, functi
     const result = yield Prisma_1.prisma.review.findMany({
         where: {
             productId: id
+        },
+        include: {
+            user: true
         }
     });
+    return result;
 });
 exports.ReviewService = {
     createReview,

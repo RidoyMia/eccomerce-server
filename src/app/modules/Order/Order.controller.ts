@@ -25,23 +25,25 @@ const createOrderController = async(req:Request,res: Response,next:NextFunction)
     }
 }
 const getAllOrderOfUserController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder[] | any> =>{
-//    try {
-//     const accesstoken = req.header;
-//     const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
-//     if(!userInfo){
-//         GlobalError("accesstoken not valid",req,res,next)
-//     }
-//     else{
-//         const result = await orderService.getAllOrderOfUser(userInfo.email);
-//         res.status(200).send({
-//             action : true,
-//             result
-//         })
-//     }
+   try {
+    const accesstoken = req.header;
+    //@ts-ignore
+    const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
+    if(!userInfo){
+        GlobalError("accesstoken not valid",req,res,next)
+    }
+    else{
+        //@ts-ignore
+        const result = await orderService.getAllOrderOfUser(userInfo.email);
+        res.status(200).send({
+            action : true,
+            result
+        })
+    }
     
-//    } catch (error) {
-//     GlobalError(error,req,res,next)
-//    }
+   } catch (error) {
+    GlobalError(error,req,res,next)
+   }
 }
 const getOrderByMonthController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder[] | any> =>{
     // try {
