@@ -37,7 +37,7 @@ const createOrderController = (req, res, next) => __awaiter(void 0, void 0, void
 });
 const getAllOrderOfUserController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const accesstoken = req.header;
+        const { accesstoken } = req.headers;
         //@ts-ignore
         const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
         if (!userInfo) {

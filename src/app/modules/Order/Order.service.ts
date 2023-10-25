@@ -24,7 +24,9 @@ const createOrder = async(orderInfo : Iorder) :Promise<Iorder | any> =>{
 const getAllOrderOfUser = async(email : string) => {
     const result = await prisma.order.findMany({
         include : {
-            user : true
+            user : true,
+            product : true,
+            
         },
         where : {
             user : {
