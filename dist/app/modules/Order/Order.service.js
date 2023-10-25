@@ -31,7 +31,8 @@ const createOrder = (orderInfo) => __awaiter(void 0, void 0, void 0, function* (
 const getAllOrderOfUser = (email) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield Prisma_1.prisma.order.findMany({
         include: {
-            user: true
+            user: true,
+            product: true,
         },
         where: {
             user: {

@@ -56,17 +56,20 @@ const getOrdersByMonthYear = async (): Promise<any> => {
   return ordersByMonthYear;
 };
 
-const deletedOrder =async (id:number):Promise<Iorder | any> => {
+const deletedOrder =async (id:number,email : string):Promise<Iorder | any> => {
     const result = await prisma.$transaction(async(tran)=>{
         const findOrderHistory = await tran.order.findFirst({
             where : {
-                productId : id
+                  id : id,
+                 user : {
+                    email : email
+                 }
             }
         })
          
         const updateQuantity = await tran.product.update({
             where : {
-                 id 
+                  id : findOrderHistory?.productId 
             },
             data : {
                 quantity : {
@@ -74,6 +77,13 @@ const deletedOrder =async (id:number):Promise<Iorder | any> => {
                 }
             }
         })
+        const deletedOrder = await tran.order.delete({
+            where : {
+                id : findOrderHistory?.id
+            }
+        })
+        return deletedOrder
+
         
     })
     return result

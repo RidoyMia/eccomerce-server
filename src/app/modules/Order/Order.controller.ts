@@ -70,7 +70,10 @@ const getOrderByMonthController = async(req:Request,res: Response,next:NextFunct
 const deletedOrderController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder | any> =>{
     try {
         const id = parseInt(req.params.id);
-        const result = await orderService.deletedOrder(id);
+        console.log(id,'d');
+        //@ts-ignore
+        const {email}:string = req.headers;
+        const result = await orderService.deletedOrder(id,email);
         res.status(200).send({
             action : true,
             result
