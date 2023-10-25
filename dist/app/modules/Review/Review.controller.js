@@ -15,6 +15,7 @@ const Review_service_1 = require("./Review.service");
 const createProductController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const reviewInfo = req.body;
+        console.log(reviewInfo, 'reviewsss');
         const result = yield Review_service_1.ReviewService.createReview(reviewInfo);
         res.status(200).send({
             action: true,

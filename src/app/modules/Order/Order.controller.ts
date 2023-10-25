@@ -13,7 +13,8 @@ import { config } from "../../../config/envpath";
 
 const createOrderController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder | any> =>{
     try {
-        const orderInfo = req.body
+        const orderInfo = req.body;
+        console.log(orderInfo,'order info')
         const result = await orderService.createOrder(orderInfo);
         res.status(200).send({
             action : true,

@@ -12,10 +12,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.orderController = void 0;
 const GlobalError_1 = require("../../../gobalError/GlobalError");
 const Order_service_1 = require("./Order.service");
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const envpath_1 = require("../../../config/envpath");
 const createOrderController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const orderInfo = req.body;
@@ -30,22 +35,25 @@ const createOrderController = (req, res, next) => __awaiter(void 0, void 0, void
     }
 });
 const getAllOrderOfUserController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    //    try {
-    //     const accesstoken = req.header;
-    //     const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
-    //     if(!userInfo){
-    //         GlobalError("accesstoken not valid",req,res,next)
-    //     }
-    //     else{
-    //         const result = await orderService.getAllOrderOfUser(userInfo.email);
-    //         res.status(200).send({
-    //             action : true,
-    //             result
-    //         })
-    //     }
-    //    } catch (error) {
-    //     GlobalError(error,req,res,next)
-    //    }
+    try {
+        const accesstoken = req.header;
+        //@ts-ignore
+        const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
+        if (!userInfo) {
+            (0, GlobalError_1.GlobalError)("accesstoken not valid", req, res, next);
+        }
+        else {
+            //@ts-ignore
+            const result = yield Order_service_1.orderService.getAllOrderOfUser(userInfo.email);
+            res.status(200).send({
+                action: true,
+                result
+            });
+        }
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
 });
 const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     // try {

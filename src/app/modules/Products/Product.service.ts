@@ -1075,7 +1075,7 @@ const createProduct = async(productinfo : IProduct) : Promise<IProduct | any> =>
 }
 const getAllProduct = async(options : any) : Promise<IProduct[] |any> =>{
     const {page = 1, searchText="",price='asc',range=1000} = options
-    console.log(options)
+    console.log(options,)
     const skipping = (parseInt(page) -1 ) * 10
     const result = await prisma.product.findMany({
         skip : skipping,
@@ -1092,25 +1092,47 @@ const getAllProduct = async(options : any) : Promise<IProduct[] |any> =>{
           },
             OR : [
                 {
+                  name : {
+                    contains : searchText,
+                    mode : 'insensitive'
+                  }
+                },
+                {
+                  author : {
                     name : {
-                        contains : searchText,
-                        mode : 'insensitive'
+                      contains : searchText,
+                      mode : 'insensitive'
                     },
-                    category : {
-                        name : {
-                            contains : searchText,
-                            mode : 'insensitive'
-                        }
-                    },
-                    descriptions : {
-                        contains : searchText,
-                        mode : 'insensitive'
-                    },
-                    brand : {
-                        contains : searchText,
-                        mode : 'insensitive'
+                   country : {
+                    contains : searchText,
+                    mode : 'insensitive'
+                   },
+                   email :{
+                    contains : searchText,
+                    mode : 'insensitive'
+                   }
+                  }
+                },
+                {
+                  category : {
+                    name : {
+                      contains : searchText,
+                      mode : 'insensitive'
                     }
+                  }
+                },{
+                 descriptions : {
+                  contains : searchText,
+                  mode : 'insensitive'
+                 }
+                },
+                {
+                  brand : {
+                    contains : searchText,
+                    mode : 'insensitive'
+                  }
                 }
+                
             ],
             
         },
@@ -1208,6 +1230,7 @@ const getTwoPoductOfEachCategory =async() : Promise<IProduct[] | any> =>{
 
 const getAllByCategory = async(id:number,options:any) :Promise<IProduct[] | any> =>{
     const {page = 1, searchText= "", sortBy='asc'} = options
+    
     const skipping = (parseInt(page) -1 ) * 10
     const result = await prisma.product.findMany({
         take : 10,
