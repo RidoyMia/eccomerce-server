@@ -107,6 +107,7 @@ model Order {
   sub_distict  String
   distict String
   userId Int
+  payment Boolean @default(false)
   user User @relation(fields: [userId],references: [id])
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt

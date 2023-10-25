@@ -24,6 +24,7 @@ const envpath_1 = require("../../../config/envpath");
 const createOrderController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const orderInfo = req.body;
+        console.log(orderInfo, 'order info');
         const result = yield Order_service_1.orderService.createOrder(orderInfo);
         res.status(200).send({
             action: true,

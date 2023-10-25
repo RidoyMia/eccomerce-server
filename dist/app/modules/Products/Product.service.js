@@ -1008,17 +1008,38 @@ const getAllProduct = (options) => __awaiter(void 0, void 0, void 0, function* (
                     name: {
                         contains: searchText,
                         mode: 'insensitive'
-                    },
+                    }
+                },
+                {
+                    author: {
+                        name: {
+                            contains: searchText,
+                            mode: 'insensitive'
+                        },
+                        country: {
+                            contains: searchText,
+                            mode: 'insensitive'
+                        },
+                        email: {
+                            contains: searchText,
+                            mode: 'insensitive'
+                        }
+                    }
+                },
+                {
                     category: {
                         name: {
                             contains: searchText,
                             mode: 'insensitive'
                         }
-                    },
+                    }
+                }, {
                     descriptions: {
                         contains: searchText,
                         mode: 'insensitive'
-                    },
+                    }
+                },
+                {
                     brand: {
                         contains: searchText,
                         mode: 'insensitive'
