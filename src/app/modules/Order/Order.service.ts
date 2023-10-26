@@ -39,6 +39,19 @@ const getAllOrderOfUser = async(email : string) => {
     return result
 }
 
+const getOrderOfEachSeller = async(email : string) : Promise<Iorder[] | any> =>{
+    const result = await prisma.order.findMany({
+        where : {
+            product : {
+                author : {
+                    email : email
+                }
+            }
+        }
+    })
+    return result
+}
+
 
   
 
@@ -94,7 +107,8 @@ export const orderService = {
     createOrder,
     getAllOrderOfUser,
     getOrdersByMonthYear,
-    deletedOrder
+    deletedOrder,
+    getOrderOfEachSeller
 }
 
 

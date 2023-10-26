@@ -1069,14 +1069,16 @@ const getSingleProduct = (id) => __awaiter(void 0, void 0, void 0, function* () 
     });
     return result;
 });
-const getProdutBySeller = (id, options) => __awaiter(void 0, void 0, void 0, function* () {
+const getProdutBySeller = (email, options) => __awaiter(void 0, void 0, void 0, function* () {
     const { page = 1, searchText = "", sortBy = 'asc' } = options;
     const skipping = (parseInt(page) - 1) * 10;
     const result = yield Prisma_1.prisma.product.findMany({
         skip: skipping,
         take: 10,
         where: {
-            SellerId: id,
+            author: {
+                email: email
+            },
             AND: [
                 {
                     OR: [

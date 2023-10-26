@@ -55,6 +55,7 @@ const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* (
     return ordersByMonthYear;
 });
 const deletedOrder = (id, email) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id, email, 'from delted service');
     const result = yield Prisma_1.prisma.$transaction((tran) => __awaiter(void 0, void 0, void 0, function* () {
         const findOrderHistory = yield tran.order.findFirst({
             where: {

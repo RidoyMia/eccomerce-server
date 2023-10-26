@@ -15,10 +15,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productController = void 0;
 const GlobalError_1 = require("../../../gobalError/GlobalError");
 const Product_service_1 = require("./Product.service");
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const envpath_1 = require("../../../config/envpath");
 const createProdutController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const productInfo = req.body;
@@ -60,9 +65,13 @@ const getSingleProductController = (req, res, next) => __awaiter(void 0, void 0,
 });
 const getProdutBySellerController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = parseInt(req.params.id);
+        const { accesstoken } = req.headers;
+        // console.log(accesstoken,'jsttt')
+        // @ts-ignore
+        const userId = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
+        console.log(userId, 'jst');
         const options = req.query;
-        const result = yield Product_service_1.productService.getProdutBySeller(id, options);
+        const result = yield Product_service_1.productService.getProdutBySeller(userId.email, options);
         res.status(200).send({
             action: true,
             result

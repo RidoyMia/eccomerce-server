@@ -66,6 +66,21 @@ const getOrderByMonthController = async(req:Request,res: Response,next:NextFunct
     //     GlobalError(error,req,res,next)
     // }
 }
+const getOrderOfEachSeller = async(req:Request,res:Response,next:NextFunction) : Promise<Iorder[] | any> =>{
+    try {
+        const {accesstoken} = req.headers;
+        //@ts-ignore
+        const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret);
+        //@ts-ignore
+        const result = await orderService.getOrderOfEachSeller(userInfo?.email)
+        res.status(200).send({
+            action : true,
+            result
+        })
+    } catch (error) {
+        GlobalError(error,req,res,next)
+    }
+}
 
 const deletedOrderController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder | any> =>{
     try {
@@ -90,5 +105,6 @@ export const orderController = {
     createOrderController,
     getAllOrderOfUserController,
     getOrderByMonthController,
-    deletedOrderController
+    deletedOrderController,
+    getOrderOfEachSeller
 }
