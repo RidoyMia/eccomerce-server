@@ -1,3 +1,4 @@
+import { PrismaPromise } from "@prisma/client";
 import { prisma } from "../../../prisma/Prisma";
 import { Ireview } from "./Review.interface";
 
@@ -39,10 +40,23 @@ const getAllReviewByProductId = async(id : number) : Promise<Ireview[] | any> =>
     })
     return result
 }
+const getAllReviewOFEachSeller= async(email:string) : Promise<Ireview[] | any > =>{
+  const result = await prisma.review.findMany({
+    where : {
+        product : {
+            author : {
+                email : email
+            }
+        }
+    }
+  })
+  return result
+}
 
 export const ReviewService = {
     createReview,
     deleteReview,
     updateReviw,
-    getAllReviewByProductId
+    getAllReviewByProductId,
+    getAllReviewOFEachSeller
 }

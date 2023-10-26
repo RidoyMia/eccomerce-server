@@ -43,15 +43,32 @@ const getAllOrderOfUser = (email) => __awaiter(void 0, void 0, void 0, function*
     return result;
 });
 const getOrderOfEachSeller = (email) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield Prisma_1.prisma.order.findMany({
-        where: {
-            product: {
-                author: {
-                    email: email
+    const result = yield Prisma_1.prisma.$transaction((tran) => __awaiter(void 0, void 0, void 0, function* () {
+        const orders = yield Prisma_1.prisma.order.findMany({
+            include: {
+                product: true
+            },
+            where: {
+                product: {
+                    author: {
+                        email: email
+                    }
                 }
             }
+        });
+        let Amount = 0;
+        if (orders.length > 0) {
+            for (let i = 0; i < orders.length; i++) {
+                const element = orders[i];
+                //@ts-ignore
+                const totalMoney = parseInt(element.product.price) * parseInt(element.quantity);
+                Amount = Amount + totalMoney;
+            }
+            return {
+                orders, Amount
+            };
         }
-    });
+    }));
     return result;
 });
 const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* () {

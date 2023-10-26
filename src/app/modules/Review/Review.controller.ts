@@ -4,6 +4,8 @@ import { NextFunction,Request,Response } from "express";
 import { Ireview } from "./Review.interface";
 import { GlobalError } from "../../../gobalError/GlobalError";
 import { ReviewService } from "./Review.service";
+import jwt, { Secret } from "jsonwebtoken";
+import { config } from "../../../config/envpath";
 
 
 const createProductController = async(req:Request,res:Response,next:NextFunction) : Promise<Ireview | any> =>{
@@ -11,6 +13,22 @@ const createProductController = async(req:Request,res:Response,next:NextFunction
         const reviewInfo = req.body;
         console.log(reviewInfo,'reviewsss')
         const result = await ReviewService.createReview(reviewInfo);
+        res.status(200).send({
+            action : true,
+            result
+        })
+    } catch (error) {
+        GlobalError(error,req,res,next)
+    }
+}
+const getAllReviewOFEachSellerController = async(req:Request,res:Response,next:NextFunction) : Promise<Ireview[] | any> =>{
+    try {
+        const {accesstoken} = req.headers;
+
+        //@ts-ignore
+        const sellerInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret);
+        //@ts-ignore
+        const result = await ReviewService.getAllReviewOFEachSeller(sellerInfo?.email);
         res.status(200).send({
             action : true,
             result
@@ -63,5 +81,6 @@ export const reviewController = {
     createProductController,
     deleteReviewController,
     updateReviwController,
-    getAllReviewByProductIdController
+    getAllReviewByProductIdController,
+    getAllReviewOFEachSellerController
 }
