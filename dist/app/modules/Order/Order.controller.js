@@ -74,6 +74,22 @@ const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, 
     //     GlobalError(error,req,res,next)
     // }
 });
+const getOrderOfEachSeller = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { accesstoken } = req.headers;
+        //@ts-ignore
+        const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
+        //@ts-ignore
+        const result = yield Order_service_1.orderService.getOrderOfEachSeller(userInfo === null || userInfo === void 0 ? void 0 : userInfo.email);
+        res.status(200).send({
+            action: true,
+            result
+        });
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
+});
 const deletedOrderController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
@@ -95,5 +111,6 @@ exports.orderController = {
     createOrderController,
     getAllOrderOfUserController,
     getOrderByMonthController,
-    deletedOrderController
+    deletedOrderController,
+    getOrderOfEachSeller
 };

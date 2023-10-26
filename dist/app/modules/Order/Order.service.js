@@ -42,6 +42,18 @@ const getAllOrderOfUser = (email) => __awaiter(void 0, void 0, void 0, function*
     });
     return result;
 });
+const getOrderOfEachSeller = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Prisma_1.prisma.order.findMany({
+        where: {
+            product: {
+                author: {
+                    email: email
+                }
+            }
+        }
+    });
+    return result;
+});
 const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* () {
     const ordersByMonthYear = yield Prisma_1.prisma.$queryRaw `
   SELECT
@@ -88,5 +100,6 @@ exports.orderService = {
     createOrder,
     getAllOrderOfUser,
     getOrdersByMonthYear,
-    deletedOrder
+    deletedOrder,
+    getOrderOfEachSeller
 };
