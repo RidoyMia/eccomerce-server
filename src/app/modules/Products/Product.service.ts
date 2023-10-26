@@ -1159,14 +1159,16 @@ const getSingleProduct = async(id : number) : Promise<IProduct | any> =>{
     })
     return result
 }
-const getProdutBySeller = async(id : number,options : any) : Promise<IProduct[] | any> =>{
+const getProdutBySeller = async(email : string,options : any) : Promise<IProduct[] | any> =>{
     const {page = 1, searchText= "", sortBy='asc'} = options
     const skipping = (parseInt(page) -1 ) * 10
     const result = await prisma.product.findMany({
        skip : skipping,
        take : 10,
         where : {
-            SellerId : id,
+            author : {
+              email : email
+            },
             AND : [
                 {
                     OR : [

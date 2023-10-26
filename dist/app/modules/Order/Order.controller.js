@@ -77,7 +77,10 @@ const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, 
 const deletedOrderController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = parseInt(req.params.id);
-        const result = yield Order_service_1.orderService.deletedOrder(id);
+        console.log(id, 'd');
+        //@ts-ignore
+        const { email } = req.headers;
+        const result = yield Order_service_1.orderService.deletedOrder(id, email);
         res.status(200).send({
             action: true,
             result

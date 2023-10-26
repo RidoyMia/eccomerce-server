@@ -54,16 +54,19 @@ const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* (
 `;
     return ordersByMonthYear;
 });
-const deletedOrder = (id) => __awaiter(void 0, void 0, void 0, function* () {
+const deletedOrder = (id, email) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield Prisma_1.prisma.$transaction((tran) => __awaiter(void 0, void 0, void 0, function* () {
         const findOrderHistory = yield tran.order.findFirst({
             where: {
-                productId: id
+                id: id,
+                user: {
+                    email: email
+                }
             }
         });
         const updateQuantity = yield tran.product.update({
             where: {
-                id
+                id: findOrderHistory === null || findOrderHistory === void 0 ? void 0 : findOrderHistory.productId
             },
             data: {
                 quantity: {
@@ -71,6 +74,12 @@ const deletedOrder = (id) => __awaiter(void 0, void 0, void 0, function* () {
                 }
             }
         });
+        const deletedOrder = yield tran.order.delete({
+            where: {
+                id: findOrderHistory === null || findOrderHistory === void 0 ? void 0 : findOrderHistory.id
+            }
+        });
+        return deletedOrder;
     }));
     return result;
 });

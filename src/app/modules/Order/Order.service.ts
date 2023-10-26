@@ -57,6 +57,7 @@ const getOrdersByMonthYear = async (): Promise<any> => {
 };
 
 const deletedOrder =async (id:number,email : string):Promise<Iorder | any> => {
+    console.log(id,email,'from delted service')
     const result = await prisma.$transaction(async(tran)=>{
         const findOrderHistory = await tran.order.findFirst({
             where : {

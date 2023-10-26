@@ -10,7 +10,8 @@ import express,{ NextFunction ,Request,Response} from "express";
 import { IProduct } from "./Products.interface";
 import { GlobalError } from "../../../gobalError/GlobalError";
 import { productService } from "./Product.service";
-
+import jwt, { Secret } from "jsonwebtoken"
+import { config } from "../../../config/envpath";
 
 
 const createProdutController = async(req:Request,res:Response,next: NextFunction) : Promise<IProduct |any> =>{
@@ -55,10 +56,14 @@ const getSingleProductController = async(req:Request,res:Response,next:NextFunct
 }
 const getProdutBySellerController = async(req:Request,res:Response,next:NextFunction) : Promise<IProduct[] | any > =>{
     try {
-        const id = parseInt(req.params.id);
+        const {accesstoken} = req.headers;
+        // console.log(accesstoken,'jsttt')
+        // @ts-ignore
+        const userId = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
+        console.log(userId,'jst')
         const options = req.query
-    const result = await productService.getProdutBySeller(id,options);
-    res.status(200).send({
+        const result = await productService.getProdutBySeller(userId.email,options);
+        res.status(200).send({
         action : true,
         result
     })
