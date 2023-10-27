@@ -40,35 +40,40 @@ const getAllOrderOfUser = async(email : string) => {
 }
 
 const getOrderOfEachSeller = async(email : string) : Promise<Iorder[] | any> =>{
+    console.log(email)
     const result = await prisma.$transaction(async(tran)=>{
-        const orders = await prisma.order.findMany({
+        const orders = await tran.order.findMany({
             include : {
                 product : true
             },
             where : {
                 product : {
-                    author : {
+                    author :{
                         email : email
                     }
                 }
             }
         })
-        let Amount = 0;
+        let Amount = 0
         if(orders.length >0){
-            for (let i = 0; i < orders.length; i++) {
-                const element = orders[i];
-                //@ts-ignore
-                const totalMoney = parseInt(element.product.price) * parseInt(element.quantity)
-                Amount = Amount + totalMoney
-                
-            }
-            return {
-                orders,Amount
-            }
-        }
-        
+                    for (let i = 0; i < orders.length; i++) {
+                        const element = orders[i];
+                        //@ts-ignore
+                        const totalMoney = parseInt(element.product.price) * parseInt(element.quantity)
+                        Amount = Amount + totalMoney
+                        
+                    }
+                    
+                }
+       return {orders,Amount}       
+              
     })
-    return result
+  
+       
+        
+        
+  
+    return {result}
 }
 
 

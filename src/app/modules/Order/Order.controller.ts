@@ -69,7 +69,8 @@ const getOrderByMonthController = async(req:Request,res: Response,next:NextFunct
 const getOrderOfEachSeller = async(req:Request,res:Response,next:NextFunction) : Promise<Iorder[] | any> =>{
     try {
         const {accesstoken} = req.headers;
-        //@ts-ignore
+        console.log(accesstoken,'token')
+        // @ts-ignore
         const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret);
         //@ts-ignore
         const result = await orderService.getOrderOfEachSeller(userInfo?.email)
