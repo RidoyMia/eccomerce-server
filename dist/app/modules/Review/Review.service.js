@@ -43,9 +43,22 @@ const getAllReviewByProductId = (id) => __awaiter(void 0, void 0, void 0, functi
     });
     return result;
 });
+const getAllReviewOFEachSeller = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Prisma_1.prisma.review.findMany({
+        where: {
+            product: {
+                author: {
+                    email: email
+                }
+            }
+        }
+    });
+    return result;
+});
 exports.ReviewService = {
     createReview,
     deleteReview,
     updateReviw,
-    getAllReviewByProductId
+    getAllReviewByProductId,
+    getAllReviewOFEachSeller
 };
