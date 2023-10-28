@@ -1184,6 +1184,7 @@ const getAllByCategory = (id, options) => __awaiter(void 0, void 0, void 0, func
     return { total, result };
 });
 const deleteProduct = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id, 'hoceni');
     const result = yield Prisma_1.prisma.product.delete({
         where: {
             id

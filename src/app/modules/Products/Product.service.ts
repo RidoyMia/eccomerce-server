@@ -1281,6 +1281,7 @@ const getAllByCategory = async(id:number,options:any) :Promise<IProduct[] | any>
     return {total,result}
 }
 const deleteProduct = async(id : number): Promise<IProduct | any> =>{
+  console.log(id,'hoceni')
     const result = await prisma.product.delete({
         where : {
             id

@@ -18,7 +18,7 @@ productRouter.get('/All', Product_controller_1.productController.getAllProduct);
 productRouter.get('/features', Product_controller_1.productController.getTwoPoductOfEachCategoryController);
 productRouter.get('/seller', Product_controller_1.productController.getProdutBySellerController);
 productRouter.get('/category/:id', Product_controller_1.productController.getAllByCategory);
-productRouter.delete('/:id', Product_controller_1.productController.deleteProductController);
+productRouter.delete('/delete/:id', Product_controller_1.productController.deleteProductController);
 productRouter.patch('/:id', Product_controller_1.productController.updateProductController);
 productRouter.get('/:id', Product_controller_1.productController.getSingleProductController);
 exports.default = productRouter;

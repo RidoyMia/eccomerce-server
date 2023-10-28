@@ -90,7 +90,8 @@ const getAllByCategory = async(req:Request,res:Response,next:NextFunction) : Pro
 const deleteProductController = async(req:Request,res:Response,next:NextFunction) : Promise<IProduct[] | any > =>{
     try {
         const id = parseInt(req.params.id);
-        const options = req.query
+        console.log(id,'from delted')
+       
     const result = await productService.deleteProduct(id);
     res.status(200).send({
         action : true,
