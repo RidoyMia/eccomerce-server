@@ -27,7 +27,9 @@ const envpath_1 = require("../../../config/envpath");
 const createProdutController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const productInfo = req.body;
+        console.log(productInfo, 'info');
         const result = yield Product_service_1.productService.createProduct(productInfo);
+        console.log(result, 'result of product');
         res.status(200).send({
             action: true,
             result

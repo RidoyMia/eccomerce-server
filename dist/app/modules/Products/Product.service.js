@@ -982,6 +982,7 @@ const newProductss = [
     }
 ];
 const createProduct = (productinfo) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(productinfo, 'from service');
     const result = yield Prisma_1.prisma.product.create({
         data: productinfo
     });
