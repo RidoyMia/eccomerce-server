@@ -1068,6 +1068,7 @@ const newProductss =[
  
 
 const createProduct = async(productinfo : IProduct) : Promise<IProduct | any> =>{
+  console.log(productinfo,'from service')
     const result = await prisma.product.create({
       data : productinfo
     })

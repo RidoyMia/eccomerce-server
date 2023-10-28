@@ -17,7 +17,9 @@ import { config } from "../../../config/envpath";
 const createProdutController = async(req:Request,res:Response,next: NextFunction) : Promise<IProduct |any> =>{
     try {
         const productInfo = req.body;
+        console.log(productInfo,'info')
         const result = await productService.createProduct(productInfo);
+        console.log(result,'result of product')
         res.status(200).send({
             action : true,
             result

@@ -77,11 +77,12 @@ const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, 
 const getOrderOfEachSeller = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { accesstoken } = req.headers;
-        console.log(accesstoken, 'token');
+        console.log(accesstoken, 'tokennt');
         // @ts-ignore
         const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
         //@ts-ignore
         const result = yield Order_service_1.orderService.getOrderOfEachSeller(userInfo === null || userInfo === void 0 ? void 0 : userInfo.email);
+        console.log(result, 'result');
         res.status(200).send({
             action: true,
             result
