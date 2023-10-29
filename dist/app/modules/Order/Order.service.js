@@ -72,14 +72,15 @@ const getOrderOfEachSeller = (email) => __awaiter(void 0, void 0, void 0, functi
 });
 const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* () {
     const ordersByMonthYear = yield Prisma_1.prisma.$queryRaw `
-  SELECT
-    EXTRACT(MONTH FROM "createdAt") AS "month",
-    EXTRACT(YEAR FROM "createdAt") AS "year",
-    COUNT(*) AS "count",
-    SUM("quantity") AS "totalQuantity"
-  FROM "Order"
-  GROUP BY "year", "month"
-`;
+    SELECT
+      EXTRACT(MONTH FROM "createdAt") AS "month",
+      EXTRACT(YEAR FROM "createdAt") AS "year",
+      EXTRACT(DAY FROM "createdAt") AS "day",
+      COUNT(*) AS "count",
+      SUM("quantity") AS "totalQuantity"
+    FROM "Order"
+    GROUP BY "year", "month", "day"
+  `;
     return ordersByMonthYear;
 });
 const deletedOrder = (id, email) => __awaiter(void 0, void 0, void 0, function* () {

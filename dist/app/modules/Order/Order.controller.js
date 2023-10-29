@@ -57,22 +57,24 @@ const getAllOrderOfUserController = (req, res, next) => __awaiter(void 0, void 0
     }
 });
 const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    // try {
-    //     const accesstoken = req.header;
-    // const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
-    // if(userInfo.role != "admin"){
-    //     GlobalError("accesstoken not valid",req,res,next)
-    // }
-    // else{
-    //     const result = await orderService.getOrdersByMonthYear();
-    //     res.status(200).send({
-    //         action : true,
-    //         result
-    //     })
-    // }
-    // } catch (error) {
-    //     GlobalError(error,req,res,next)
-    // }
+    try {
+        const { accesstoken } = req.headers;
+        //@ts-ignore
+        const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
+        if (userInfo.role != "admin") {
+            (0, GlobalError_1.GlobalError)("accesstoken not valid", req, res, next);
+        }
+        else {
+            const result = yield Order_service_1.orderService.getOrdersByMonthYear();
+            res.status(200).send({
+                action: true,
+                result
+            });
+        }
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
 });
 const getOrderOfEachSeller = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
