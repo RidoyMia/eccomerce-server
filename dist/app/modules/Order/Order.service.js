@@ -71,17 +71,20 @@ const getOrderOfEachSeller = (email) => __awaiter(void 0, void 0, void 0, functi
     return { result };
 });
 const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* () {
-    const ordersByMonthYear = yield Prisma_1.prisma.$queryRaw `
+    const ordersByYearMonth = yield Prisma_1.prisma.$queryRaw `
     SELECT
-      EXTRACT(MONTH FROM "createdAt") AS "month",
-      EXTRACT(YEAR FROM "createdAt") AS "year",
-      EXTRACT(DAY FROM "createdAt") AS "day",
-      COUNT(*) AS "count",
-      SUM("quantity") AS "totalQuantity"
-    FROM "Order"
-    GROUP BY "year", "month", "day"
+      EXTRACT(YEAR FROM "createdAt")::integer AS year,
+      EXTRACT(MONTH FROM "createdAt")::integer AS month,
+      EXTRACT(DAY FROM "createdAt")::integer AS day,
+      SUM("quantity")::integer AS total_quantity
+    FROM
+      "Order"
+    GROUP BY
+      year, month,day
+    ORDER BY
+      year, month;
   `;
-    return ordersByMonthYear;
+    return ordersByYearMonth;
 });
 const deletedOrder = (id, email) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(id, email, 'from delted service');

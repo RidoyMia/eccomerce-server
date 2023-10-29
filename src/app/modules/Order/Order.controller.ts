@@ -50,6 +50,7 @@ const getAllOrderOfUserController = async(req:Request,res: Response,next:NextFun
 const getOrderByMonthController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder[] | any> =>{
     try {
         const {accesstoken} = req.headers;
+        console.log(accesstoken)
         //@ts-ignore
     const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
     if(userInfo.role != "admin"){

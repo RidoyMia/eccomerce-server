@@ -80,6 +80,7 @@ const getOrderOfEachSeller = async(email : string) : Promise<Iorder[] | any> =>{
   
 
 const getOrdersByMonthYear = async (): Promise<any> => {
+    console.log('paici')
     const ordersByYearMonth = await prisma.$queryRaw`
     SELECT
       EXTRACT(YEAR FROM "createdAt")::integer AS year,
