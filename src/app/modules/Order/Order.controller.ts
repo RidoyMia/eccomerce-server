@@ -48,23 +48,24 @@ const getAllOrderOfUserController = async(req:Request,res: Response,next:NextFun
    }
 }
 const getOrderByMonthController = async(req:Request,res: Response,next:NextFunction) : Promise<Iorder[] | any> =>{
-    // try {
-    //     const accesstoken = req.header;
-    // const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
-    // if(userInfo.role != "admin"){
-    //     GlobalError("accesstoken not valid",req,res,next)
-    // }
-    // else{
-    //     const result = await orderService.getOrdersByMonthYear();
-    //     res.status(200).send({
-    //         action : true,
-    //         result
-    //     })
-    // }
+    try {
+        const {accesstoken} = req.headers;
+        //@ts-ignore
+    const userInfo = await jwt.verify(accesstoken,config.ACCESSTOKEN as Secret)
+    if(userInfo.role != "admin"){
+        GlobalError("accesstoken not valid",req,res,next)
+    }
+    else{
+        const result = await orderService.getOrdersByMonthYear();
+        res.status(200).send({
+            action : true,
+            result
+        })
+    }
         
-    // } catch (error) {
-    //     GlobalError(error,req,res,next)
-    // }
+    } catch (error) {
+        GlobalError(error,req,res,next)
+    }
 }
 const getOrderOfEachSeller = async(req:Request,res:Response,next:NextFunction) : Promise<Iorder[] | any> =>{
     try {

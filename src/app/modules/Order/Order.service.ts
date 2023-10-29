@@ -80,18 +80,20 @@ const getOrderOfEachSeller = async(email : string) : Promise<Iorder[] | any> =>{
   
 
 const getOrdersByMonthYear = async (): Promise<any> => {
-  const ordersByMonthYear =  await prisma.$queryRaw`
-  SELECT
-    EXTRACT(MONTH FROM "createdAt") AS "month",
-    EXTRACT(YEAR FROM "createdAt") AS "year",
-    COUNT(*) AS "count",
-    SUM("quantity") AS "totalQuantity"
-  FROM "Order"
-  GROUP BY "year", "month"
-`;
-
-  return ordersByMonthYear;
-};
+    const ordersByMonthYear =  await prisma.$queryRaw`
+    SELECT
+      EXTRACT(MONTH FROM "createdAt") AS "month",
+      EXTRACT(YEAR FROM "createdAt") AS "year",
+      EXTRACT(DAY FROM "createdAt") AS "day",
+      COUNT(*) AS "count",
+      SUM("quantity") AS "totalQuantity"
+    FROM "Order"
+    GROUP BY "year", "month", "day"
+  `;
+  
+    return ordersByMonthYear;
+  };
+  
 
 const deletedOrder =async (id:number,email : string):Promise<Iorder | any> => {
     console.log(id,email,'from delted service')

@@ -98,17 +98,18 @@ const getAllByCategory = (req, res, next) => __awaiter(void 0, void 0, void 0, f
     }
 });
 const deleteProductController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    // try {
-    const id = parseInt(req.params.id);
-    console.log(id, 'from delted');
-    // const result = await productService.deleteProduct(id);
-    // res.status(200).send({
-    //     action : true,
-    //     result
-    // })
-    // } catch (error) {
-    //     GlobalError(error,req,res,next) 
-    // }
+    try {
+        const id = parseInt(req.params.id);
+        console.log(id, 'from delted');
+        const result = yield Product_service_1.productService.deleteProduct(id);
+        res.status(200).send({
+            action: true,
+            result
+        });
+    }
+    catch (error) {
+        (0, GlobalError_1.GlobalError)(error, req, res, next);
+    }
 });
 const updateProductController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
