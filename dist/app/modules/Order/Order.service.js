@@ -71,6 +71,7 @@ const getOrderOfEachSeller = (email) => __awaiter(void 0, void 0, void 0, functi
     return { result };
 });
 const getOrdersByMonthYear = () => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('paici');
     const ordersByYearMonth = yield Prisma_1.prisma.$queryRaw `
     SELECT
       EXTRACT(YEAR FROM "createdAt")::integer AS year,

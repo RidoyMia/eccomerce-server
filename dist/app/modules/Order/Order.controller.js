@@ -59,6 +59,7 @@ const getAllOrderOfUserController = (req, res, next) => __awaiter(void 0, void 0
 const getOrderByMonthController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { accesstoken } = req.headers;
+        console.log(accesstoken);
         //@ts-ignore
         const userInfo = yield jsonwebtoken_1.default.verify(accesstoken, envpath_1.config.ACCESSTOKEN);
         if (userInfo.role != "admin") {
